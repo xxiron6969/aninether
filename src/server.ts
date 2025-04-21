@@ -21,7 +21,7 @@ import type { AniwatchAPIVariables } from "./config/variables.js";
 
 config();
 
-const BASE_PATH = "/api/v2" as const;
+const BASE_PATH = "/api" as const;
 const PORT: number = Number(process.env.ANIWATCH_API_PORT) || 4000;
 const ANIWATCH_API_HOSTNAME = process.env?.ANIWATCH_API_HOSTNAME;
 
@@ -49,7 +49,7 @@ app.get("/v", async (c) =>
 
 app.use(cacheConfigSetter(BASE_PATH.length));
 
-app.basePath(BASE_PATH).route("/hianime", hianimeRouter);
+app.basePath(BASE_PATH).route("/velux", hianimeRouter);
 app
   .basePath(BASE_PATH)
   .get("/anicrush", (c) => c.text("Anicrush could be implemented in future."));
